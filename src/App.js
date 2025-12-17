@@ -1,8 +1,18 @@
+import { useState } from "react";
+import LandingPage from "./components/LandingPage";
+import Dashboard from "./components/Dashboard";
+
 function App() {
+  const [started, setStarted] = useState(false);
+
   return (
-    <div>
-      <h1>AI-Assisted Web3 Wallet</h1>
-    </div>
+    <>
+      {!started ? (
+        <LandingPage onStart={() => setStarted(true)} />
+      ) : (
+        <Dashboard />
+      )}
+    </>
   );
 }
 
